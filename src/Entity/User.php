@@ -7,7 +7,7 @@ use App\Service\User\UseCase\Request\UserRequest;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
 use ApiPlatform\Core\Annotation\ApiResource;
-use App\Controller\UserController;
+use App\Controller\RegisterUserController;
 
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class),
@@ -17,7 +17,7 @@ use App\Controller\UserController;
  *         "method"="POST",
  *         "path"="/user/create",
  *         "validate"=false,
- *         "controller"=UserController::class
+ *         "controller"=RegisterUserController::class
  *     }
  * })
  */
@@ -46,20 +46,13 @@ class User implements UserInterface
      */
     private $password;
 
-    public function __construct(
-        string $email,
-        array $roles
-    ){
+    public function __construct(string $email){
         $this->email = $email;
-        $this->roles = $roles;
     }
 
     public static function createFromRequest(UserRequest $request): self{
 
-        return new static(
-          $request->getEmail(),
-          $request->getRoles()
-        );
+        return new static($request->getEmail());
     }
 
     public function getId(): ?int

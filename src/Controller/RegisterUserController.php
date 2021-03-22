@@ -10,7 +10,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class UserController extends AbstractController
+class RegisterUserController extends AbstractController
 {
     public function __invoke(UserRequest $request, RegisterNewUserUseCase $useCase)
     {

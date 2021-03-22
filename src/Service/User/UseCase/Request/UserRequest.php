@@ -6,11 +6,11 @@ use App\Util\RequestDTOInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Validator\Constraints as Assert;
-use App\Service\User\UseCase\Request\Validation\UniqueEmailConstraint as UserConstraint;
+use App\Service\User\UseCase\Request\Validation\UniqueEmailConstraint as UserEmailConstraint;
 
 /**
  * @author Julian Pulecio
- * @UserConstraint()
+ * @UserEmailConstraint()
  */
 class UserRequest extends ApiRequest implements RequestDTOInterface
 {
@@ -23,11 +23,6 @@ class UserRequest extends ApiRequest implements RequestDTOInterface
      */
     public $email;
 
-    /**
-     * @var array
-     * @Assert\NotBlank
-     */
-    public $roles;
 
     /**
      * @var string
@@ -46,14 +41,6 @@ class UserRequest extends ApiRequest implements RequestDTOInterface
     public function getEmail(): string
     {
         return $this->email;
-    }
-
-    /**
-     * @return array
-     */
-    public function getRoles(): array
-    {
-        return $this->roles;
     }
 
     /**
