@@ -8,7 +8,7 @@ use Symfony\Component\Validator\Constraint;
 */
 class UniqueEmailConstraint extends Constraint
 {
-    public $message = 'The "{{ string }}" must be unique';
+    public $message = 'The "{{ string }}" is already taken';
 
     public function getTargets()
     {

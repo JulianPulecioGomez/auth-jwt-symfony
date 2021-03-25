@@ -17,7 +17,7 @@ use App\Controller\RegisterUserController;
  *         "method"="POST",
  *         "path"="/user/create",
  *         "validate"=false,
- *         "controller"=RegisterUserController::class
+ *         "controller"=RegisterUserController::class,
  *     }
  * })
  */
